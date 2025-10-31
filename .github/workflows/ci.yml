@@ -24,13 +24,10 @@ jobs:
           cache: "npm"
 
       - name: Install dependencies
-        # Using npm install is often more robust for tutorials than npm ci
         run: npm install
 
       - name: Lint code
-        # FIX: Add the environment variable to ensure ESLint v9
-        # can find your old .eslintrc configuration file.
-        run: ESLINT_USE_FLAT_CONFIG=false npm run lint
+        run: npm run lint
 
       - name: Run tests
         run: npm test
