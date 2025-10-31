@@ -35,14 +35,14 @@ jobs:
   deploy:
     needs: build-and-test
     runs-on: ubuntu-latest
-    # Condition: Only deploy on a push to the main branch
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Deploy to Vercel
-        uses: vercel/vercel-action@v1
+        uses: vercel/vercel-action@v34
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-prod: true
