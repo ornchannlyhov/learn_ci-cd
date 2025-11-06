@@ -31,5 +31,9 @@
     "@eslint/js": "^9.38.0",
     "globals": "^16.4.0",
     "nyc": "^17.1.0"
+  },
+  "nyc": {
+    "reporter": ["text", "lcov", "html"],
+    "report-dir": "./coverage"
   }
 }
